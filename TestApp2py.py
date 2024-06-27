@@ -10,3 +10,10 @@ paramDict = {'q': 'Chicago,US', 'units': 'imperial', 'appid': '4a6da2fb67e933bfe
 response = requests.get(url, params=paramDict)
 parsed_json = response.json();
 pprint(parsed_json)
+#index into the json
+print(parsed_json['list'][1]['main']['temp_max'])
+print(parsed_json['list'][2]['main']['temp_max'])
+#list comprehension
+maxarray = [x['main']['temp_max'] for x in parsed_json['list']]
+print(maxarray)
+print(max(maxarray))
